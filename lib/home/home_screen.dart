@@ -12,9 +12,12 @@ class NavigationIconView {
       _icon = icon,
       _activeIcon = activeIcon,
       item = BottomNavigationBarItem(
-        icon: Icon(icon),
-        activeIcon: Icon(activeIcon),
-        title: new Text(title),
+        icon: Icon(icon, color: Color(AppColors.TabIconNormal)),
+        activeIcon: Icon(icon, color: Color(AppColors.TabIconActive)),
+        title: new Text(title, style: TextStyle(
+          fontSize: 14.0,
+          color: Color(AppColors.TabIconNormal)
+        ),),
         backgroundColor: Colors.white
       );
 
