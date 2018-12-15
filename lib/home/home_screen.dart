@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:wechat/constants.dart';
 
 class NavigationIconView {
   final String _title;
-  final Widget _icon;
-  final Widget _activeIcon;
+  final IconData _icon;
+  final IconData _activeIcon;
   final BottomNavigationBarItem item;
 
-  NavigationIconView({String title, Widget icon, Widget activeIcon}) :
+  NavigationIconView({String title, IconData icon, IconData activeIcon}) :
       _title = title,
       _icon = icon,
       _activeIcon = activeIcon,
       item = BottomNavigationBarItem(
-        icon: icon,
-        activeIcon: activeIcon,
+        icon: Icon(icon),
+        activeIcon: Icon(activeIcon),
         title: new Text(title),
         backgroundColor: Colors.white
       );
@@ -35,23 +36,48 @@ class _HomeScreenState extends State<HomeScreen> {
     _navigationViews = [
       NavigationIconView(
         title: '微信',
-        icon: Icon(Icons.ac_unit),
+        icon: IconData(
+          0xe608,
+          fontFamily: Constants.IconFontFamily,
+        ),
+          activeIcon: IconData(
+            0xe608,
+            fontFamily: Constants.IconFontFamily,
+          )
 
       ),
       NavigationIconView(
         title: '通讯录',
-        icon: Icon(Icons.rate_review),
-
+        icon: IconData(
+          0xe656,
+          fontFamily: Constants.IconFontFamily,
+        ),
+          activeIcon: IconData(
+            0xe656,
+            fontFamily: Constants.IconFontFamily,
+          )
       ),
       NavigationIconView(
         title: '发现',
-        icon: Icon(Icons.tab_unselected),
-
+        icon: IconData(
+          0xe671,
+          fontFamily: Constants.IconFontFamily,
+        ),
+          activeIcon: IconData(
+            0xe671,
+            fontFamily: Constants.IconFontFamily,
+          )
       ),
       NavigationIconView(
         title: '我',
-        icon: Icon(Icons.power),
-
+        icon: IconData(
+          0xe6c0,
+          fontFamily: Constants.IconFontFamily,
+        ),
+        activeIcon: IconData(
+          0xe6c0,
+          fontFamily: Constants.IconFontFamily,
+        )
       ),
     ];
   }
