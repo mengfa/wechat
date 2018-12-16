@@ -6,25 +6,14 @@ enum ActionItems {
 }
 
 class NavigationIconView {
-  final String _title;
-  final IconData _icon;
-  final IconData _activeIcon;
   final BottomNavigationBarItem item;
-
   NavigationIconView({String title, IconData icon, IconData activeIcon}) :
-      _title = title,
-      _icon = icon,
-      _activeIcon = activeIcon,
       item = BottomNavigationBarItem(
-        icon: Icon(icon, color: Color(AppColors.TabIconNormal)),
-        activeIcon: Icon(icon, color: Color(AppColors.TabIconActive)),
-        title: new Text(title, style: TextStyle(
-          fontSize: 14.0,
-          color: Color(AppColors.TabIconNormal)
-        ),),
-        backgroundColor: Colors.white
+          icon: Icon(icon),
+          activeIcon: Icon(activeIcon),
+          title: Text(title),
+          backgroundColor: Colors.white,
       );
-
 }
 
 class HomeScreen extends StatefulWidget {
@@ -104,6 +93,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final BottomNavigationBar botNavBar = BottomNavigationBar(
+      fixedColor: const Color(AppColors.TabIconActive),
       items: _navigationViews.map((NavigationIconView view){
         return view.item;
       }).toList(),
