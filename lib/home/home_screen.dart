@@ -92,10 +92,10 @@ class _HomeScreenState extends State<HomeScreen> {
         children: <Widget>[
             Icon(IconData(
               iconName,
-                  fontFamily: Constants.IconFontFamily,
-                )),
+              fontFamily: Constants.IconFontFamily
+            ), size: 22.0, color: const Color(AppColors.AppBarPopuMenuColor)),
             Container(width: 12.0),
-            Text(title),
+            Text(title, style: TextStyle(color: const Color(AppColors.AppBarPopuMenuColor))),
           ],
     );
   }
