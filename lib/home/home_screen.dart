@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:wechat/constants.dart';
 
+enum ActionItems {
+  GROUP_CHAT, ADD_FRIEND, QR_SCAN, PAYMENT, HELP
+}
+
 class NavigationIconView {
   final String _title;
   final IconData _icon;
@@ -24,12 +28,10 @@ class NavigationIconView {
 }
 
 class HomeScreen extends StatefulWidget {
-
   @override
   _HomeScreenState createState() => _HomeScreenState();
 
 }
-
 
 class _HomeScreenState extends State<HomeScreen> {
   List<NavigationIconView> _navigationViews;
@@ -85,6 +87,18 @@ class _HomeScreenState extends State<HomeScreen> {
     ];
   }
 
+  _buildPopupMunuItem(int iconName, String title){
+    return Row(
+        children: <Widget>[
+            Icon(IconData(
+              iconName,
+                  fontFamily: Constants.IconFontFamily,
+                )),
+            Container(width: 12.0),
+            Text(title),
+          ],
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -110,13 +124,41 @@ class _HomeScreenState extends State<HomeScreen> {
             ), size: 22.0,),
             onPressed: (){print("点击了搜索按钮");},
           ),
-          IconButton(
+          Container(width: 16.0,),
+          PopupMenuButton(
+            itemBuilder: (BuildContext context){
+              return <PopupMenuItem<ActionItems>>[
+                PopupMenuItem(
+                  child: _buildPopupMunuItem(0xe69e, "发起群聊"),
+                  value: ActionItems.GROUP_CHAT,
+                ),
+                PopupMenuItem(
+                  child: _buildPopupMunuItem(0xe638, "添加朋友"),
+                  value: ActionItems.ADD_FRIEND,
+                ),
+                PopupMenuItem(
+                  child: _buildPopupMunuItem(0xe61b, "扫一扫"),
+                  value: ActionItems.QR_SCAN,
+                ),
+                PopupMenuItem(
+                  child: _buildPopupMunuItem(0xe62a, "收付款"),
+                  value: ActionItems.PAYMENT,
+                ),
+                PopupMenuItem(
+                  child: _buildPopupMunuItem(0xe63d, "帮助与反馈"),
+                  value: ActionItems.HELP,
+                ),
+              ];
+            },
             icon: Icon(IconData(
               0xe658,
               fontFamily: Constants.IconFontFamily,
             ), size: 22.0,),
-            onPressed: (){print("点击了添加按钮");},
-          )
+            onSelected: (ActionItems selected){
+              print("点击的是$selected");
+            },
+          ),
+          Container(width: 16.0,)
         ],
       ),
       body: Container(
