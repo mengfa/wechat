@@ -12,6 +12,10 @@ class AppColors {
   static const NotifyDotBg = 0xffff3e3e;
   static const NotifyDotText = 0xffffffff;
   static const ConversationMuteIcon = 0xffd8d8d8;
+  static const DeviceInfoItemBg = 0xfff5f5f5;
+  static const DeviceInfoItemText = 0xff606062;
+  static const DeviceInfoItemIcon = 0xff606062;
+
 }
 
 class AppStyles {
@@ -29,6 +33,11 @@ class AppStyles {
   static const UnreadMsgCountDotStyle = TextStyle(
       fontSize: 12.0,
       color: Color(AppColors.NotifyDotText),
+  );
+
+  static const DeviceInfoItemTextStyle = TextStyle(
+      fontSize: 13.0,
+      color: Color(AppColors.DeviceInfoItemText),
   );
 }
 
